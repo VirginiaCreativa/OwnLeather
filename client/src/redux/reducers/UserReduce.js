@@ -1,7 +1,7 @@
 import { FORM_USER_SIGN } from '../types';
 
 const initialState = {
-  hasUser: '',
+  shouldUser: true,
 };
 
 const UserReduce = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const UserReduce = (state = initialState, action) => {
     case FORM_USER_SIGN:
       return {
         ...state,
-        hasUser: action.payload,
+        shouldUser: action.payload,
       };
 
     default:

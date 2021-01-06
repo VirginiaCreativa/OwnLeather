@@ -1,10 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory, useLocation, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { HeadeingForm, Line, Form, GroupForm } from '../Home.Styled';
 
+import { UserFormSign } from '../../../redux/actions/UserAction';
+
 const Login = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleSubmitLogin = (ev) => {
     ev.preventDefault();
@@ -12,6 +16,7 @@ const Login = () => {
 
   const handleGoBack = (ev) => {
     localStorage.removeItem('formDatas');
+    dispatch(UserFormSign(false));
   };
 
   return (

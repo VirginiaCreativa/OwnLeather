@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import { HeadeingForm, Line, Form, GroupForm } from '../Home.Styled';
 
+import { UserFormSign } from '../../../redux/actions/UserAction';
+
 const SignUp = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   const [hasDatas, setDatas] = useState({
     inputNameFull: '',
     inputEmail: '',
@@ -15,7 +21,6 @@ const SignUp = () => {
       [ev.target.name]: ev.target.value,
     });
   };
-  const history = useHistory();
 
   const handleSubmitSignUp = (ev) => {
     ev.preventDefault();
@@ -26,6 +31,7 @@ const SignUp = () => {
     };
     localStorage.setItem('formDatas', JSON.stringify(formDatas));
     console.log(localStorage.getItem('formDatas'));
+    dispatch(UserFormSign(true));
   };
   return (
     <>
