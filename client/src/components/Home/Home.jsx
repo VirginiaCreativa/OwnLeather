@@ -1,6 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../../common/Logo/Logo';
-import { Gridolumn, Column, Heading, HeadeingForm, Line } from './Home.Styled';
+import {
+  Gridolumn,
+  Column,
+  Heading,
+  HeadeingForm,
+  Line,
+  Form,
+  GroupForm,
+} from './Home.Styled';
 
 const HomeComponent = () => {
   return (
@@ -24,6 +33,34 @@ const HomeComponent = () => {
             <h1>Sign Up</h1>
             <Line />
           </HeadeingForm>
+          <Form>
+            <GroupForm>
+              <label htmlFor="InputNameFull">
+                NameFull
+                <input type="text" />
+              </label>
+            </GroupForm>
+            <GroupForm>
+              <label htmlFor="InputNameFull">
+                Email
+                <input type="text" />
+              </label>
+            </GroupForm>
+            <GroupForm>
+              <label htmlFor="InputNameFull">
+                Password
+                <input type="password" />
+              </label>
+            </GroupForm>
+            <div className="d-grid gap-2" style={{ marginTop: '40px' }}>
+              <button type="submit" className="btn btn-primary btn-lg">
+                Sign Up
+              </button>
+            </div>
+            <p>
+              Already have an account? <Link to="/login">Sign In</Link>
+            </p>
+          </Form>
         </Column>
       </Gridolumn>
     </>
