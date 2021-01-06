@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from '../containers/Home';
 import User from '../containers/User';
+import SignUp from '../containers/SignUp';
 
 const Routes = () => {
   return (
@@ -9,8 +10,11 @@ const Routes = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/user">
+      <Route exact path="/user">
         <User />
+      </Route>
+      <Route exact path="/signup">
+        <SignUp />
       </Route>
     </Switch>
   );
