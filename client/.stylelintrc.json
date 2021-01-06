@@ -1,24 +1,11 @@
 {
   "extends": [
-    "stylelint-config-recommended", 
-    "stylelint-config-concentric-order", 
-    "stylelint-config-standard", 
+    "stylelint-config-recommended",
+    "stylelint-config-concentric-order",
+    "stylelint-config-standard",
     "stylelint-config-styled-components",
     "stylelint-config-prettier"
   ],
-  "processors": [["stylelint-processor-styled-components", {
-    "moduleName": "styled-components",
-    "importName": "default",
-    "strict": false,
-    "ignoreFiles": [],
-    "parserPlugins": [
-      "jsx",
-      ["decorators", { "decoratorsBeforeExport": true }],
-      "classProperties",
-      "exportExtensions",
-      "functionSent"
-    ]
-  }]],
   "plugins": [
     "stylelint-order"
   ],
