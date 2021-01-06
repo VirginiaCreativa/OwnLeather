@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../common/Logo/Logo';
 import {
@@ -12,6 +12,26 @@ import {
 } from './Home.Styled';
 
 const HomeComponent = () => {
+  const [hasDatas, setDatas] = useState({
+    inputNameFull: '',
+    inputEmail: '',
+    inputPassword: '',
+  });
+
+  const handleInputChange = (ev) => {
+    setDatas({
+      ...hasDatas,
+      [ev.target.name]: ev.target.value,
+    });
+  };
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    console.log(
+      `enviando datos...${hasDatas.inputNameFull} ${hasDatas.inputEmail}`,
+    );
+  };
+
   return (
     <>
       <Gridolumn>
@@ -33,23 +53,35 @@ const HomeComponent = () => {
             <h1>Sign Up</h1>
             <Line />
           </HeadeingForm>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <GroupForm>
               <label htmlFor="InputNameFull">
                 NameFull
-                <input type="text" />
+                <input
+                  onChange={handleInputChange}
+                  type="text"
+                  name="inputNameFull"
+                />
               </label>
             </GroupForm>
             <GroupForm>
-              <label htmlFor="InputNameFull">
+              <label htmlFor="InputEmail">
                 Email
-                <input type="text" />
+                <input
+                  onChange={handleInputChange}
+                  type="text"
+                  name="inputEmail"
+                />
               </label>
             </GroupForm>
             <GroupForm>
-              <label htmlFor="InputNameFull">
+              <label htmlFor="InputPassword">
                 Password
-                <input type="password" />
+                <input
+                  onChange={handleInputChange}
+                  type="password"
+                  name="inputPassword"
+                />
               </label>
             </GroupForm>
             <div className="d-grid gap-2" style={{ marginTop: '40px' }}>
