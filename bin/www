@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('ownleather:server');
 var http = require('http');
-
+const chalk = require('chalk');
 /**
  * Get port from environment and store in Express.
  */
@@ -25,7 +25,14 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, () => {
+  console.log(
+    chalk
+      .bgHex('#4eb3f4')
+      .hex('#1f2530')
+      .bold(`*****> Server up and running on PORT ${port}! <*****`)
+  );
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -67,11 +74,9 @@ function onError(error) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
       process.exit(1);
-      break;
     case 'EADDRINUSE':
       console.error(bind + ' is already in use');
       process.exit(1);
-      break;
     default:
       throw error;
   }
