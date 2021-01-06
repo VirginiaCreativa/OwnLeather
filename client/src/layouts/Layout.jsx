@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Header from './Header/Header';
 
 const Wrapper = styled.div`
-  min-height: 80vh;
+  min-height: 90vh;
 `;
 const Layouts = ({ children }) => {
   return (

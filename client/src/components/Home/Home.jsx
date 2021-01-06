@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+
 import Logo from '../../common/Logo/Logo';
 import {
   Gridolumn,
@@ -12,6 +13,8 @@ import {
 } from './Home.Styled';
 
 const HomeComponent = () => {
+  const history = useHistory();
+
   const [hasDatas, setDatas] = useState({
     inputNameFull: '',
     inputEmail: '',
@@ -27,6 +30,13 @@ const HomeComponent = () => {
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
+    const formDatas = {
+      namefull: hasDatas.inputNameFull,
+      email: hasDatas.inputEmail,
+      password: hasDatas.inputPassword,
+    };
+    localStorage.setItem('formDatas', JSON.stringify(formDatas));
+    console.log(localStorage.getItem('formDatas'));
     console.log(
       `enviando datos...${hasDatas.inputNameFull} ${hasDatas.inputEmail}`,
     );

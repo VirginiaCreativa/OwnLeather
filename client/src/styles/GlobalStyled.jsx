@@ -59,45 +59,41 @@ const GlobalStyled = createGlobalStyle`
     background-color: ${Variables.gray_2};
     color: ${Variables.gray_dark};
   }
-  .css-yk16xz-control,
-  .css-1pahdxg-control {
-    border: none !important;
-    box-shadow: none !important;
-    padding: 2.5px;
-    &:hover {
-      border-color: none !important;
-      box-shadow: transparent !important;
-    }
-    &:focus {
-      box-shadow: transparent !important;
-    }
+
+  .loader,
+  .loader::after {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
   }
-  .css-26l3qy-menu {
+  .loader {
     position: relative;
-    z-index: 99999;
-    box-shadow: none !important;
-    font-size: 0.8rem !important;
+    transform: translateZ(0);
+    margin: 60px auto;
+    border-top: 1.1em solid rgba(127, 143, 166, 0.2);
+    border-right: 1.1em solid rgba(127, 143, 166, 0.2);
+    border-bottom: 1.1em solid rgba(127, 143, 166, 0.2);
+    border-left: 1.1em solid #7f8fa6;
+    animation: load8 1.1s infinite linear;
+    text-indent: -9999em;
+    font-size: 10px;
+    -webkit-nimation: load8 1.1s infinite linear;
   }
-  .css-1n7v3ny-option {
-    border: none !important;
-    background-color: ${Variables.gray_1} !important;
-    color: ${Variables.gray_dark} !important;
-    :hover {
-      background-color: ${Variables.gray_1} !important;
-      color: ${Variables.gray_dark} !important;
+  @-webkit-keyframes load8 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
-  .css-yt9ioa-option {
-    :active {
-      background-color: ${Variables.gray_light} !important;
-      color: ${Variables.gray_dark} !important;
+  @keyframes load8 {
+    0% {
+      transform: rotate(0deg);
     }
-  }
-  .css-2b097c-container {
-    position: relative;
-  }
-  .css-1uccc91-singleValue {
-    font-size: 0.8rem !important;
+    100% {
+      transform: rotate(360deg);
+    }
   }
 `;
 
