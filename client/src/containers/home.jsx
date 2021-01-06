@@ -3,10 +3,8 @@ import { useHistory } from 'react-router-dom';
 
 const Home = () => {
   const history = useHistory();
-  localStorage.setItem('bgcolor', 'red');
-  // localStorage.clear();
   useEffect(() => {
-    if (window.localStorage.length === 0) {
+    if (!window.localStorage.length === 0) {
       history.push('/signup');
     }
   });

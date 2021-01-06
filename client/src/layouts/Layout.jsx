@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Header from './Header/Header';
 
 const Wrapper = styled.div`
-  height: 800px;
+  min-height: 80vh;
 `;
 const Layouts = ({ children }) => {
   return (
