@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation, Link } from 'react-router-dom';
 import SignUp from './SignUp/SignUp';
 import Login from './Login/Login';
@@ -14,36 +14,14 @@ import {
 } from './Home.Styled';
 
 const HomeComponent = () => {
-  const history = useHistory();
-
-  const [hasDatas, setDatas] = useState({
-    inputNameFull: '',
-    inputEmail: '',
-    inputPassword: '',
-  });
   const [isUserStorage, setUserStorage] = useState(false);
 
-  const handleInputChange = (ev) => {
-    setDatas({
-      ...hasDatas,
-      [ev.target.name]: ev.target.value,
-    });
-  };
+  const history = useHistory();
 
-  const handleSubmit = (ev) => {
-    ev.preventDefault();
-    const formDatas = {
-      namefull: hasDatas.inputNameFull,
-      email: hasDatas.inputEmail,
-      password: hasDatas.inputPassword,
-    };
-    localStorage.setItem('formDatas', JSON.stringify(formDatas));
-    console.log(localStorage.getItem('formDatas'));
-    console.log(
-      `enviando datos...${hasDatas.inputNameFull} ${hasDatas.inputEmail}`,
-    );
-    history.push('/login');
-  };
+  useEffect(() => {
+    // console.log(window.localStorage);
+    if (window.localStorage.length === 1) setUserStorage(true);
+  }, []);
 
   return (
     <>
