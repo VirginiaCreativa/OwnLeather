@@ -8,6 +8,7 @@ import 'boxicons';
 
 ReactDOM.render(
   <React.StrictMode>
+    <GlobalStyled />
     <App />
   </React.StrictMode>,
   document.getElementById('root'),

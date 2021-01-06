@@ -4,6 +4,7 @@ import Variables from './VariableStyled';
 const GlobalStyled = createGlobalStyle`
   body {
     background: ${Variables.body};
+    font-family:  'Roboto Condensed', sans-serif !important;
   }
   a {
     text-decoration: none !important;

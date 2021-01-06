@@ -1,9 +1,10 @@
 import React from 'react';
+import Logo from '../../common/Logo/Logo';
 
 const Header = () => {
   return (
     <>
-      <h1>LOGO</h1>
+      <Logo />
     </>
   );
 };
