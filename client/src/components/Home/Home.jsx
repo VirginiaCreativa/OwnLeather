@@ -1,5 +1,5 @@
 import React from 'react';
-import { Gridolumn, Column, Heading } from './Home.Styled';
+import { Gridolumn, Column, Heading, OverlyBg } from './Home.Styled';
 
 const HomeComponent = () => {
   return (
@@ -19,7 +19,7 @@ const HomeComponent = () => {
             </p>
           </Heading>
           <img
-            src="https://images.pexels.com/photos/614971/pexels-photo-614971.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+            src="https://image.freepik.com/free-vector/cartoon-man-sitting-home-with-laptop_74855-6963.jpg"
             alt="background leather"
           />
         </Column>
