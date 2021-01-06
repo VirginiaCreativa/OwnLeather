@@ -7,12 +7,26 @@ export const Gridolumn = styled.div`
 `;
 
 export const Column = styled.div`
-  padding: 60px;
+  padding: 100px;
+
+  :last-child {
+    background-color: #f5f6fa;
+  }
 `;
 
 export const Heading = styled.div`
   display: flex;
   flex-direction: column;
+
+  h1 {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  > h5 {
+    margin-bottom: 60px;
+    font-weight: 300;
+  }
 `;
 
 export const OverlyBg = styled.div`
