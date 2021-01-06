@@ -72,7 +72,10 @@ const SignUp = () => {
           </button>
         </div>
         <p>
-          Already have an account? <Link to="/login">Sign In</Link>
+          Already have an account?{' '}
+          <button type="button" onClick={(ev) => dispatch(UserFormSign(true))}>
+            Login
+          </button>
         </p>
       </Form>
     </>
