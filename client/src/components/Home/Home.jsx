@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../../common/Logo/Logo';
-import { Gridolumn, Column, Heading, OverlyBg } from './Home.Styled';
+import { Gridolumn, Column, Heading, HeadeingForm, Line } from './Home.Styled';
 
 const HomeComponent = () => {
   return (
@@ -19,7 +19,12 @@ const HomeComponent = () => {
             alt="background leather"
           />
         </Column>
-        <Column>Colunm 2</Column>
+        <Column>
+          <HeadeingForm>
+            <h1>Sign Up</h1>
+            <Line />
+          </HeadeingForm>
+        </Column>
       </Gridolumn>
     </>
   );

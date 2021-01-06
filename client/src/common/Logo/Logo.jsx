@@ -8,18 +8,18 @@ const Grid = styled.div`
   align-items: center;
   h4 {
     margin-bottom: 0;
-    color: ${Variables.grey2};
+    color: ${Variables.blueNight2};
     font-weight: 300;
   }
 `;
 
 const Symbol = styled.div`
   margin-right: 10px;
-  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
   padding: 0 10px;
   font-size: 30px;
   i {
-    color: ${Variables.grey2};
+    color: ${Variables.blueNight2};
   }
 `;
 
