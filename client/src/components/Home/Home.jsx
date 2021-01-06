@@ -40,6 +40,7 @@ const HomeComponent = () => {
     console.log(
       `enviando datos...${hasDatas.inputNameFull} ${hasDatas.inputEmail}`,
     );
+    history.push('/login');
   };
 
   return (

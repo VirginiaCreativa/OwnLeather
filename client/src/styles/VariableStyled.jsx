@@ -5,6 +5,7 @@ const Variables = {
   blueNight2: '#273c75',
   grey1: '#718093',
   grey2: '#7f8fa6',
+  grey3: '#f5f6fa',
   red1: '#c23616',
   red2: '#e84118',
   green1: '#27ae60',
