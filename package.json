@@ -6,6 +6,7 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "acorn": "^8.0.4",
     "chalk": "^4.1.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -13,6 +14,10 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.6",
+    "prettier": "^2.2.1",
     "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "eslint": "^7.17.0"
   }
 }
