@@ -4,7 +4,6 @@ import Home from '../containers/home';
 import User from '../containers/user';
 
 const router = () => {
-
   return (
     <>
       <Switch>
@@ -17,6 +16,6 @@ const router = () => {
       </Switch>
     </>
   );
-}
+};
 
 export default router;
