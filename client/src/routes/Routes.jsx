@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from '../containers/Home';
 import User from '../containers/User';
-import SignUp from '../containers/SignUp';
+import Login from '../containers/Login';
 
 const Routes = () => {
   return (
@@ -13,8 +13,8 @@ const Routes = () => {
       <Route exact path="/user">
         <User />
       </Route>
-      <Route exact path="/signup">
-        <SignUp />
+      <Route exact path="/login">
+        <Login />
       </Route>
     </Switch>
   );
