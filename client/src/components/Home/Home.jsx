@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
-
+import { useHistory, useLocation, Link } from 'react-router-dom';
+import SignUp from './SignUp/SignUp';
+import Login from './Login/Login';
 import Logo from '../../common/Logo/Logo';
 import {
   Gridolumn,
@@ -20,6 +21,7 @@ const HomeComponent = () => {
     inputEmail: '',
     inputPassword: '',
   });
+  const [isUserStorage, setUserStorage] = useState(false);
 
   const handleInputChange = (ev) => {
     setDatas({
@@ -46,6 +48,7 @@ const HomeComponent = () => {
   return (
     <>
       <Gridolumn>
+        {/* COVER PAGE  */}
         <Column>
           <Heading>
             <Logo />
@@ -59,52 +62,8 @@ const HomeComponent = () => {
             alt="background leather"
           />
         </Column>
-        <Column>
-          <HeadeingForm>
-            <h1>Sign Up</h1>
-            <Line />
-          </HeadeingForm>
-          <Form onSubmit={handleSubmit}>
-            <GroupForm>
-              <label htmlFor="InputNameFull">
-                NameFull
-                <input
-                  onChange={handleInputChange}
-                  type="text"
-                  name="inputNameFull"
-                />
-              </label>
-            </GroupForm>
-            <GroupForm>
-              <label htmlFor="InputEmail">
-                Email
-                <input
-                  onChange={handleInputChange}
-                  type="text"
-                  name="inputEmail"
-                />
-              </label>
-            </GroupForm>
-            <GroupForm>
-              <label htmlFor="InputPassword">
-                Password
-                <input
-                  onChange={handleInputChange}
-                  type="password"
-                  name="inputPassword"
-                />
-              </label>
-            </GroupForm>
-            <div className="d-grid gap-2" style={{ marginTop: '40px' }}>
-              <button type="submit" className="btn btn-primary btn-lg">
-                Sign Up
-              </button>
-            </div>
-            <p>
-              Already have an account? <Link to="/login">Sign In</Link>
-            </p>
-          </Form>
-        </Column>
+        {/* FORM SIGN UP OR LOGIN */}
+        <Column>{isUserStorage ? <Login /> : <SignUp />}</Column>
       </Gridolumn>
     </>
   );

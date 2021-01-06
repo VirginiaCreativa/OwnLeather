@@ -7,11 +7,11 @@ const Home = () => {
   // localStorage.setItem('nombredeusuario', 'John');
   // console.log(window.localStorage);
   // localStorage.clear();
-  useEffect(() => {
-    if (window.localStorage.length === 1) {
-      history.push('/login');
-    }
-  });
+  // useEffect(() => {
+  //   if (window.localStorage.length === 1) {
+  //     history.push('/login');
+  //   }
+  // });
   return (
     <>
       <HomeComponent />
