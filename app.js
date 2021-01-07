@@ -1,5 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
+const graphqlHTTP = require('express-graphql');
+const { buildSchema } = require('graphql');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -24,6 +26,29 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 
+// ==== FILES ROUTER ==== //
+const Users = require('./routes/users');
+// ==== FILES API ==== //
+
+app.use(Users);
+// ==== API ==== //
+// const rootValue = {
+//   hello: () => 'Hello, world'
+// }
+
+const schema = buildSchema(`
+  query {
+    node(id:"MDQ6VXNlcjM3MTUyODU0") {
+    ... on User {
+        name
+        login
+      }
+    }
+  }
+`);
+app.use('/graphql', graphqlHTTP({ schema, rootValue }));
+
+ 
 // ==== STATIC FILES ==== //
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
@@ -31,8 +56,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
   });
 }
-
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
