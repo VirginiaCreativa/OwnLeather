@@ -83,7 +83,7 @@ const Login = () => {
           </button>
         </div>
         <GroupFromBack>
-          <p>Other register?</p>
+          <p>Another account?</p>
           <ButtonLink type="button" onClick={handleGoBack}>
             Go back
           </ButtonLink>

@@ -49,7 +49,7 @@ const SignUp = () => {
       <Form onSubmit={handleSubmitSignUp}>
         <GroupForm>
           <label htmlFor="InputNameFull">
-            NameFull
+            Full Name
             <input
               onChange={handleInputChange}
               type="text"
@@ -78,14 +78,6 @@ const SignUp = () => {
             Sign Up
           </button>
         </div>
-        <GroupFromBack>
-          <p>Already have an account?</p>
-          <ButtonLink
-            type="button"
-            onClick={(ev) => dispatch(UserFormSign(true))}>
-            Login
-          </ButtonLink>
-        </GroupFromBack>
       </Form>
     </>
   );
