@@ -26,7 +26,7 @@ const Login = () => {
   const [onValidationEmail, setOnValidationEmail] = useState(false);
   const [isValidationEmail, setIsValidationEmail] = useState('');
   const [onValidationPass, setOnValidationPass] = useState(false);
-  const [isVAalidationPass, setIsValidationPass] = useState('');
+  const [isValidationPass, setIsValidationPass] = useState('');
 
   useEffect(() => {
     const getGata = JSON.parse(localStorage.getItem('formDatas'));
@@ -39,15 +39,41 @@ const Login = () => {
   }, []);
 
   const handleInputChange = (ev) => {
-    if (ev.target.textLength >= 3) {
-      if (ev.target.value === isValidationEmail) {
-        setOnValidationEmail(true);
-      }
-      if (ev.target.value === isVAalidationPass) {
-        setOnValidationPass(true);
-        document.getElementById('btnSubmit').disabled = false;
+    if (ev.target.name === 'inputEmail') {
+      if (ev.target.textLength >= 10) {
+        if (ev.target.value === isValidationEmail) {
+          setOnValidationEmail(true);
+        }
+      } else {
+        setOnValidationEmail(false);
       }
     }
+    if (ev.target.name === 'inputPassword') {
+      if (ev.target.textLength >= 3) {
+        if (ev.target.value === isValidationPass) {
+          setOnValidationPass(true);
+        }
+      } else {
+        setOnValidationPass(false);
+      }
+    }
+    // if (ev.target.textLength >= 3) {
+    //   if (ev.target.value === isValidationEmail) {
+    //     setOnValidationEmail(true);
+    //   }
+    //   if (ev.target.value === isValidationPass) {
+    //     setOnValidationPass(true);
+    //     document.getElementById('btnSubmit').disabled = false;
+    //   }
+    // } else {
+    //   setOnValidationEmail(false);
+    //   setOnValidationPass(false);
+    // }
+
+    // if (ev.target.name) {
+    //   if (ev.target.textLength <= 3)
+    //     document.getElementById('btnSubmit').disabled = true;
+    // }
 
     setDatas({
       ...hasDatas,
