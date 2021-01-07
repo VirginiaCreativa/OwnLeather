@@ -23,9 +23,9 @@ const Login = () => {
     inputEmail: '',
     inputPassword: '',
   });
-  const [onValidationEmail, setOnValidationEmail] = useState(true);
+  const [onValidationEmail, setOnValidationEmail] = useState(false);
   const [isVAalidationEmail, setIsValidationEmail] = useState(false);
-  const [onValidationPass, setOnValidationPass] = useState(true);
+  const [onValidationPass, setOnValidationPass] = useState(false);
   const [isVAalidationPass, setIsValidationPass] = useState(false);
   const [isEmail, setIsEmail] = useState('');
   const [isPassword, setIsPassword] = useState('');
@@ -43,7 +43,7 @@ const Login = () => {
   const handleInputChange = (ev) => {
     console.log(ev.target.name, ev.target.value);
     if (ev.target.value === isEmail) {
-      console.log('PROBADO');
+      setOnValidationEmail(true);
     }
     setDatas({
       ...hasDatas,
@@ -71,11 +71,7 @@ const Login = () => {
           <label htmlFor="InputEmail">
             Email
             <input onChange={handleInputChange} type="text" name="inputEmail" />
-            {onValidationEmail && (
-              <ValidationError>
-                <i className="bx bx-x" />
-              </ValidationError>
-            )}
+            {onValidationEmail}
           </label>
         </GroupForm>
         <GroupForm>
