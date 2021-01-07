@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Variables from '../../styles/VariableStyled';
 
 const Headign = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   h1 {
     color: ${Variables.blueNight2};
   }
