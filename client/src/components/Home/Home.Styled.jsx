@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Variables from '../../styles/VariableStyled';
 
 export const Gridolumn = styled.div`
@@ -64,11 +64,55 @@ export const Form = styled.form`
   }
 `;
 
+const animateCheck = keyframes`
+  from {
+   opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
+const Check = styled.div`
+  position: absolute;
+  top: 46px;
+  right: 10px;
+  i {
+    animation: ${animateCheck} 1s linear;
+    color: ${Variables.green2};
+    font-size: 30px;
+  }
+`;
+
+const bxError = styled.div`
+  position: absolute;
+  top: 46px;
+  right: 10px;
+  i {
+    animation: ${animateCheck} 1s linear;
+    font-size: 30px;
+  }
+`;
+
+export const ValidationError = styled(bxError)`
+  i {
+    color: ${Variables.red2};
+  }
+`;
+
+export const ValidationCheck = styled(Check)`
+  i {
+    color: ${Variables.green2};
+  }
+`;
+
 export const GroupForm = styled.div`
   margin: 20px 0;
   label,
   input {
     display: block;
+    position: relative;
     width: 100%;
   }
   input {
