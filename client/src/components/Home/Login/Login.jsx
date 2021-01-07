@@ -24,25 +24,31 @@ const Login = () => {
     inputPassword: '',
   });
   const [onValidationEmail, setOnValidationEmail] = useState(false);
-  const [isVAalidationEmail, setIsValidationEmail] = useState('');
+  const [isValidationEmail, setIsValidationEmail] = useState('');
   const [onValidationPass, setOnValidationPass] = useState(false);
   const [isVAalidationPass, setIsValidationPass] = useState('');
 
   useEffect(() => {
-    console.log(localStorage.getItem('formDatas'));
     const getGata = JSON.parse(localStorage.getItem('formDatas'));
     if (getGata !== null) {
       const { email, password } = getGata;
       setIsValidationEmail(email);
       setIsValidationPass(password);
     }
+    document.getElementById('btnSubmit').disabled = true;
   }, []);
 
   const handleInputChange = (ev) => {
-    console.log(ev.target.name, ev.target.value);
-    if (ev.target.value === isVAalidationEmail) {
-      setOnValidationEmail(true);
+    if (ev.target.textLength >= 3) {
+      if (ev.target.value === isValidationEmail) {
+        setOnValidationEmail(true);
+      }
+      if (ev.target.value === isVAalidationPass) {
+        setOnValidationPass(true);
+        document.getElementById('btnSubmit').disabled = false;
+      }
     }
+
     setDatas({
       ...hasDatas,
       [ev.target.name]: ev.target.value,
@@ -88,15 +94,22 @@ const Login = () => {
               type="password"
               name="inputPassword"
             />
-            {onValidationPass && (
+            {onValidationPass ? (
               <ValidationCheck>
                 <i className="bx bx-check" />
               </ValidationCheck>
+            ) : (
+              <ValidationError>
+                <i className="bx bx-x" />
+              </ValidationError>
             )}
           </label>
         </GroupForm>
         <div className="d-grid gap-2" style={{ marginTop: '40px' }}>
-          <button type="submit" className="btn btn-primary btn-lg">
+          <button
+            type="submit"
+            className="btn btn-primary btn-lg"
+            id="btnSubmit">
             Sign Up
           </button>
         </div>
