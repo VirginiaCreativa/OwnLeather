@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -10,17 +11,24 @@ const Headign = styled.header`
   background-color: ${Variables.grey3};
   padding: ${({ hasheading }) => hasheading && '20px 10px'};
 `;
+const NavUser = styled.div`
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-end;
+  p {
+    margin-bottom: 0;
+  }
+`;
 
 const Header = () => {
   const location = useLocation();
 
   const [hasHome, setHasHome] = useState(false);
 
-  const haveDatas = useSelector((state) => state.Userign.userDatas);
-
   useEffect(() => {
     if (location.pathname !== '/') setHasHome(true);
-  }, [location]);
+  });
 
   return (
     <>
@@ -31,9 +39,7 @@ const Header = () => {
               <Logo />
             </div>
             <div className="col">
-              <div className="d-flex justify-content-end align-items-center">
-                <p>User</p>
-              </div>
+              <NavUser>...</NavUser>
             </div>
           </div>
         </Headign>

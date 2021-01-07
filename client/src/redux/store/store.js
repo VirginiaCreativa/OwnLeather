@@ -42,6 +42,7 @@ export default function createReduxStore(preloadedState) {
     composedEnhancers,
   );
 
+
   if (module.hot) {
     module.hot.accept('../reducers/reducer', () => {
       const nextRootReducer = require('../reducers/reducer');

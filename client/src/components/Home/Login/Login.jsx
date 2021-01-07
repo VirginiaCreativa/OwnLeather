@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {
@@ -28,16 +29,16 @@ const Login = () => {
   const [onValidationPass, setOnValidationPass] = useState(false);
   const [isValidationPass, setIsValidationPass] = useState('');
 
+  const userDatas = useSelector((state) => state.Userign.userDatas);
+
   useEffect(() => {
-    const getData = JSON.parse(localStorage.getItem('formDatas'));
-    dispatch(UserDatas(getData));
-    if (getData !== null) {
-      const { email, password } = getData;
+    if (userDatas !== null) {
+      const { email, password } = userDatas;
       setIsValidationEmail(email);
       setIsValidationPass(password);
     }
     document.getElementById('btnSubmit').disabled = true;
-  }, [dispatch]);
+  }, []);
 
   const handleInputChange = (ev) => {
     setDatas({

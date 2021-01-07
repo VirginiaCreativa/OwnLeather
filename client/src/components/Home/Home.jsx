@@ -24,7 +24,6 @@ const HomeComponent = () => {
   const onUserForm = useSelector((state) => state.Userign.shouldUser);
 
   useEffect(() => {
-    console.log(window.localStorage);
     if (window.localStorage.length === 1) dispatch(UserFormSign(true));
   }, []);
 
