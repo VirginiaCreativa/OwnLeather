@@ -29,9 +29,9 @@ const Login = () => {
   const [isValidationPass, setIsValidationPass] = useState('');
 
   useEffect(() => {
-    const getGata = JSON.parse(localStorage.getItem('formDatas'));
-    if (getGata !== null) {
-      const { email, password } = getGata;
+    const getData = JSON.parse(localStorage.getItem('formDatas'));
+    if (getData !== null) {
+      const { email, password } = getData;
       setIsValidationEmail(email);
       setIsValidationPass(password);
     }
