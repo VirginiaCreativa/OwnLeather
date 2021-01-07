@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
 import Variables from '../../styles/VariableStyled';
 
-const StyledTitle = styled.div`
+const Title = styled.div`
   display: flex;
   margin-top: 10px;
   h3 {
@@ -21,7 +20,7 @@ const StyledTitle = styled.div`
 
 const Line = styled.div`
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   background-color: ${Variables.grey3};
   width: 100%;
   height: 2px;
@@ -30,10 +29,10 @@ const Line = styled.div`
 const UserTitle = () => {
   return (
     <>
-      <StyledTitle>
+      <Title>
         <i className="bx bx-list-ul" />
         <h3>My lists</h3>
-      </StyledTitle>
+      </Title>
       <Line />
     </>
   );
