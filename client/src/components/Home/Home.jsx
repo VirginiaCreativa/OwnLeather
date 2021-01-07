@@ -1,6 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+
+import { UserFormSign } from '../../redux/actions/UserAction';
+
 import SignUp from './SignUp/SignUp';
 import Login from './Login/Login';
 import Logo from '../../common/Logo/Logo';
@@ -16,13 +20,12 @@ import {
 
 const HomeComponent = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const onUserForm = useSelector((state) => state.Userign.shouldUser);
-  const [isUserStorage, setUserStorage] = useState(onUserForm);
 
   useEffect(() => {
-    // console.log(window.localStorage);
-    console.log(onUserForm);
-    if (window.localStorage.length === 1) setUserStorage(!isUserStorage);
+    console.log(window.localStorage);
+    if (window.localStorage.length === 1) dispatch(UserFormSign(true));
   }, []);
 
   return (

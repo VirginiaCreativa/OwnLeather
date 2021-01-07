@@ -37,7 +37,6 @@ const SignUp = () => {
       password: hasDatas.inputPassword,
     };
     localStorage.setItem('formDatas', JSON.stringify(formDatas));
-    console.log(localStorage.getItem('formDatas'));
     dispatch(UserFormSign(true));
   };
   return (

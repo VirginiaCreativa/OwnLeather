@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation, Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -27,8 +27,24 @@ const Login = () => {
   const [isVAalidationEmail, setIsValidationEmail] = useState(false);
   const [onValidationPass, setOnValidationPass] = useState(true);
   const [isVAalidationPass, setIsValidationPass] = useState(false);
+  const [isEmail, setIsEmail] = useState('');
+  const [isPassword, setIsPassword] = useState('');
+
+  useEffect(() => {
+    console.log(localStorage.getItem('formDatas'));
+    const getGata = JSON.parse(localStorage.getItem('formDatas'));
+    if (getGata !== null) {
+      const { email, password } = getGata;
+      setIsEmail(email);
+      setIsPassword(password);
+    }
+  }, []);
 
   const handleInputChange = (ev) => {
+    console.log(ev.target.name, ev.target.value);
+    if (ev.target.value === isEmail) {
+      console.log('PROBADO');
+    }
     setDatas({
       ...hasDatas,
       [ev.target.name]: ev.target.value,
