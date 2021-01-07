@@ -6,15 +6,13 @@ import ColumnList from '../components/User/UserList';
 
 const User = () => {
   const user = 'VirginiaCreativa';
-  const githubToken = 'b81c1ad7c7c90de64cefbd0df4711e3f309c2166';
-  axios({
-    method: 'get',
-    url: `https://api.github.com/users/${user}/repos`,
-    headers: {
-      Authorization: `Bearer ${githubToken}`,
-      'Content-Type': 'application/json',
-    },
-  })
+  const githubToken = 'e7f7780d48c90ef8df10e9b0d1e857a1d4e2fcb0';
+  axios
+    .get(`https://api.github.com/users/${user}/repos`, {
+      headers: {
+        Authorization: `Bearer ${githubToken}`,
+      },
+    })
     .then((res) => {
       console.log(res.data);
     })
