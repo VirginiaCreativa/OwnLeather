@@ -39,6 +39,11 @@ const Login = () => {
   }, []);
 
   const handleInputChange = (ev) => {
+    setDatas({
+      ...hasDatas,
+      [ev.target.name]: ev.target.value,
+    });
+
     if (ev.target.name === 'inputEmail') {
       if (ev.target.textLength >= 10) {
         if (ev.target.value === isValidationEmail) {
@@ -47,42 +52,28 @@ const Login = () => {
       } else {
         setOnValidationEmail(false);
       }
+    } else {
+      document.getElementById('btnSubmit').disabled = true;
     }
+
     if (ev.target.name === 'inputPassword') {
       if (ev.target.textLength >= 3) {
         if (ev.target.value === isValidationPass) {
           setOnValidationPass(true);
+          document.getElementById('btnSubmit').disabled = false;
         }
       } else {
         setOnValidationPass(false);
       }
+    } else {
+      document.getElementById('btnSubmit').disabled = true;
     }
-    // if (ev.target.textLength >= 3) {
-    //   if (ev.target.value === isValidationEmail) {
-    //     setOnValidationEmail(true);
-    //   }
-    //   if (ev.target.value === isValidationPass) {
-    //     setOnValidationPass(true);
-    //     document.getElementById('btnSubmit').disabled = false;
-    //   }
-    // } else {
-    //   setOnValidationEmail(false);
-    //   setOnValidationPass(false);
-    // }
-
-    // if (ev.target.name) {
-    //   if (ev.target.textLength <= 3)
-    //     document.getElementById('btnSubmit').disabled = true;
-    // }
-
-    setDatas({
-      ...hasDatas,
-      [ev.target.name]: ev.target.value,
-    });
   };
 
   const handleSubmitLogin = (ev) => {
     ev.preventDefault();
+    const disableBtn = document.getElementById('btnSubmit').disabled;
+    if (disableBtn === false) history.push('/user');
   };
 
   const handleGoBack = (ev) => {
