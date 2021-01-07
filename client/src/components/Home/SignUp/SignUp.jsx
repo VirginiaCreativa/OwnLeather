@@ -10,7 +10,7 @@ import {
   GroupFromBack,
 } from '../Home.Styled';
 
-import { UserFormSign } from '../../../redux/actions/UserAction';
+import { UserFormSign, UserDatas } from '../../../redux/actions/UserAction';
 
 const SignUp = () => {
   const history = useHistory();

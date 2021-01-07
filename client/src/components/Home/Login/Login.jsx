@@ -13,7 +13,7 @@ import {
   GroupFromBack,
 } from '../Home.Styled';
 
-import { UserFormSign } from '../../../redux/actions/UserAction';
+import { UserFormSign, UserDatas } from '../../../redux/actions/UserAction';
 
 const Login = () => {
   const history = useHistory();
@@ -30,13 +30,14 @@ const Login = () => {
 
   useEffect(() => {
     const getData = JSON.parse(localStorage.getItem('formDatas'));
+    dispatch(UserDatas(getData));
     if (getData !== null) {
       const { email, password } = getData;
       setIsValidationEmail(email);
       setIsValidationPass(password);
     }
     document.getElementById('btnSubmit').disabled = true;
-  }, []);
+  }, [dispatch]);
 
   const handleInputChange = (ev) => {
     setDatas({
