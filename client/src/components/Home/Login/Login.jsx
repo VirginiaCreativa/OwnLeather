@@ -24,25 +24,23 @@ const Login = () => {
     inputPassword: '',
   });
   const [onValidationEmail, setOnValidationEmail] = useState(false);
-  const [isVAalidationEmail, setIsValidationEmail] = useState(false);
+  const [isVAalidationEmail, setIsValidationEmail] = useState('');
   const [onValidationPass, setOnValidationPass] = useState(false);
-  const [isVAalidationPass, setIsValidationPass] = useState(false);
-  const [isEmail, setIsEmail] = useState('');
-  const [isPassword, setIsPassword] = useState('');
+  const [isVAalidationPass, setIsValidationPass] = useState('');
 
   useEffect(() => {
     console.log(localStorage.getItem('formDatas'));
     const getGata = JSON.parse(localStorage.getItem('formDatas'));
     if (getGata !== null) {
       const { email, password } = getGata;
-      setIsEmail(email);
-      setIsPassword(password);
+      setIsValidationEmail(email);
+      setIsValidationPass(password);
     }
   }, []);
 
   const handleInputChange = (ev) => {
     console.log(ev.target.name, ev.target.value);
-    if (ev.target.value === isEmail) {
+    if (ev.target.value === isVAalidationEmail) {
       setOnValidationEmail(true);
     }
     setDatas({
@@ -71,7 +69,15 @@ const Login = () => {
           <label htmlFor="InputEmail">
             Email
             <input onChange={handleInputChange} type="text" name="inputEmail" />
-            {onValidationEmail}
+            {onValidationEmail ? (
+              <ValidationCheck>
+                <i className="bx bx-check" />
+              </ValidationCheck>
+            ) : (
+              <ValidationError>
+                <i className="bx bx-x" />
+              </ValidationError>
+            )}
           </label>
         </GroupForm>
         <GroupForm>
