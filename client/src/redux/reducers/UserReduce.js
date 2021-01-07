@@ -1,7 +1,7 @@
 import { FORM_USER_SIGN } from '../types';
 
 const initialState = {
-  shouldUser: true,
+  shouldUser: false,
 };
 
 const UserReduce = (state = initialState, action) => {

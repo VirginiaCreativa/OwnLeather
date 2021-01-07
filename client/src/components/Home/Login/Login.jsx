@@ -9,6 +9,8 @@ import {
   GroupForm,
   ValidationCheck,
   ValidationError,
+  ButtonLink,
+  GroupFromBack,
 } from '../Home.Styled';
 
 import { UserFormSign } from '../../../redux/actions/UserAction';
@@ -80,9 +82,12 @@ const Login = () => {
             Sign Up
           </button>
         </div>
-        <button type="button" onClick={handleGoBack}>
-          go back
-        </button>
+        <GroupFromBack>
+          <p>Other register?</p>
+          <ButtonLink type="button" onClick={handleGoBack}>
+            Go back
+          </ButtonLink>
+        </GroupFromBack>
       </Form>
     </>
   );

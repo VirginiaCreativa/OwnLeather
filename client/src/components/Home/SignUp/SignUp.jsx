@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
-import { HeadeingForm, Line, Form, GroupForm } from '../Home.Styled';
+import {
+  HeadeingForm,
+  Line,
+  Form,
+  GroupForm,
+  ButtonLink,
+  GroupFromBack,
+} from '../Home.Styled';
 
 import { UserFormSign } from '../../../redux/actions/UserAction';
 
@@ -71,12 +78,14 @@ const SignUp = () => {
             Sign Up
           </button>
         </div>
-        <p>
-          Already have an account?{' '}
-          <button type="button" onClick={(ev) => dispatch(UserFormSign(true))}>
+        <GroupFromBack>
+          <p>Already have an account?</p>
+          <ButtonLink
+            type="button"
+            onClick={(ev) => dispatch(UserFormSign(true))}>
             Login
-          </button>
-        </p>
+          </ButtonLink>
+        </GroupFromBack>
       </Form>
     </>
   );

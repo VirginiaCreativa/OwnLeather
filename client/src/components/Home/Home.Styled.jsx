@@ -50,18 +50,6 @@ export const Form = styled.form`
   button {
     font-weight: 600;
   }
-  p {
-    margin: 40px 0;
-    color: ${Variables.grey2};
-    a {
-      margin-left: 6px;
-      color: ${Variables.red2};
-      :hover {
-        text-decoration: underline !important;
-        color: ${Variables.red1};
-      }
-    }
-  }
 `;
 
 const animateCheck = keyframes`
@@ -121,4 +109,19 @@ export const GroupForm = styled.div`
     border-radius: 4px;
     padding: 15px 20px;
   }
+`;
+
+export const GroupFromBack = styled.div`
+  display: flex;
+  margin: 20px 0;
+  p {
+    margin-bottom: 0;
+  }
+`;
+
+export const ButtonLink = styled.button`
+  border: none;
+  background-color: transparent;
+  color: ${Variables.red2};
+  font-size: 0.85rem;
 `;
