@@ -10,10 +10,14 @@ const User = () => {
       <Title />
       <div className="row">
         <div className="col">
-          <ColumnList>Colummn1</ColumnList>
+          <ColumnList icon="bxl-github" title="Repositories">
+            Colummn1
+          </ColumnList>
         </div>
         <div className="col">
-          <ColumnList>Colummn2</ColumnList>
+          <ColumnList icon="bx-calendar" title="Google Calendar">
+            Colummn2
+          </ColumnList>
         </div>
       </div>
     </div>

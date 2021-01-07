@@ -14,6 +14,7 @@ const Headign = styled.div`
     font-weight: 300;
   }
 `;
+
 const UserHeading = () => {
   const userDatas = useSelector((state) => state.Userign.userDatas);
   return (
