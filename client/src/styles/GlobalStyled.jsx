@@ -95,6 +95,9 @@ const GlobalStyled = createGlobalStyle`
       transform: rotate(360deg);
     }
   }
+  .container {
+    padding: 40px 0;
+  }
 `;
 
 export default GlobalStyled;

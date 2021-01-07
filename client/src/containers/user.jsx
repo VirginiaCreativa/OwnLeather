@@ -1,9 +1,10 @@
 import React from 'react';
+import Heading from '../components/User/UserHeading';
 
 const User = () => {
   return (
-    <div>
-      <h1>User</h1>
+    <div className="container">
+      <Heading />
     </div>
   );
 };
