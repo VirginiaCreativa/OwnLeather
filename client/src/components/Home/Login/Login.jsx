@@ -14,7 +14,7 @@ import {
   GroupFromBack,
 } from '../Home.Styled';
 
-import { UserFormSign, UserDatas } from '../../../redux/actions/UserAction';
+import { UserFormSign } from '../../../redux/actions/UserAction';
 
 const Login = () => {
   const history = useHistory();
