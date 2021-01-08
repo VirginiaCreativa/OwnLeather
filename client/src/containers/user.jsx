@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import moduleName from 'module';
+
+import { userGithub, userGmail, tokenGithub } from '../config/Token/Token';
 import Heading from '../components/User/UserHeading';
 import Title from '../components/User/UserTitle';
 import Column from '../components/User/UserColumn';
@@ -8,15 +9,12 @@ import Ul from '../components/User/UserLists';
 
 const User = () => {
   const [dataGithub, setDataGithub] = useState([]);
-  const userGithub = 'VirginiaCreativa';
-  const userGmail = 'virginiavelasquez16@gmail.com';
-  const githubToken = '86847caccc44f8942e90e96a755ffe09eadb79b4';
 
   useEffect(() => {
     axios
       .get(`https://api.github.com/users/${userGithub}/repos`, {
         headers: {
-          Authorization: `Bearer ${githubToken}`,
+          Authorization: `Bearer ${tokenGithub}`,
           'Content-Type': 'application/json',
         },
       })
