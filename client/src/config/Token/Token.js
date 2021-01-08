@@ -1,6 +1,6 @@
 // =========== GITHUB ============ //
 export const userGithub = 'VirginiaCreativa';
-export const tokenGithub = 'ca5c26288edbf72fcb75fc3d8edf1f3f5186b9b9';
+export const tokenGithub = '46f2c7cf9c33852629f7fd4382574c81128db46c';
 
 // =========== GMAIL ============ //
 export const userGmail = 'virginiavelasquezsoto@gmail.com';

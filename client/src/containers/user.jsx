@@ -12,7 +12,7 @@ import {
 import Heading from '../components/User/UserHeading';
 import Title from '../components/User/UserTitle';
 import Column from '../components/User/UserColumn';
-import Ul from '../components/User/UserLists';
+import Lists from '../components/User/UserLists';
 
 const User = () => {
   const [dataGithub, setDataGithub] = useState([]);
@@ -64,22 +64,7 @@ const User = () => {
       <div className="row">
         <div className="col">
           <Column icon="bxl-github" title="Repositories" user={userGithub}>
-            <Ul>
-              {dataGithub &&
-                dataGithub.map((item, index) => (
-                  <li key={index}>
-                    <p>{item.name}</p>
-                    <div className="d-flex justify-content-between">
-                      <span>{item.description}</span>
-                      <span>
-                        {moment(item.created_at).format(
-                          'MMMM Do YYYY, h:mm:ss a',
-                        )}
-                      </span>
-                    </div>
-                  </li>
-                ))}
-            </Ul>
+            <Lists items={dataGithub} />
           </Column>
         </div>
         <div className="col">
