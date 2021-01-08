@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-import { userGithub, userGmail, tokenGithub } from '../config/Token/Token';
+import { gapi } from 'gapi-script';
+import moment from 'moment';
+import {
+  userGithub,
+  userGmail,
+  tokenGithub,
+  tokenGmail,
+  clientIDGmail,
+} from '../config/Token/Token';
 import Heading from '../components/User/UserHeading';
 import Title from '../components/User/UserTitle';
 import Column from '../components/User/UserColumn';
@@ -9,8 +16,32 @@ import Ul from '../components/User/UserLists';
 
 const User = () => {
   const [dataGithub, setDataGithub] = useState([]);
+  const [dataGmailCalendar, setDataGmailCalendar] = useState([]);
+
+  // const getCalendarGmail = () => {
+  //   function start() {
+  //     gapi.client
+  //       .init({
+  //         apiKey: tokenGmail,
+  //         clientId: clientIDGmail,
+  //       })
+  //       .then(() => {
+  //         return gapi.client.request({
+  //           path: `https://www.googleapis.com/calendar/v3/calendars/${clientIDGmail}/events`,
+  //         });
+  //       })
+  //       .then((response) => {
+  //         console.log(response.result);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  //   gapi.load('client', start);
+  // };
 
   useEffect(() => {
+    // getCalendarGmail();
     axios
       .get(`https://api.github.com/users/${userGithub}/repos`, {
         headers: {
@@ -24,9 +55,7 @@ const User = () => {
       .catch((err) => {
         console.log(err);
       });
-
-    console.log(dataGithub);
-  });
+  }, []);
 
   return (
     <div className="container">
@@ -40,7 +69,14 @@ const User = () => {
                 dataGithub.map((item, index) => (
                   <li key={index}>
                     <p>{item.name}</p>
-                    <span>{item.description}</span>
+                    <div className="d-flex justify-content-between">
+                      <span>{item.description}</span>
+                      <span>
+                        {moment(item.created_at).format(
+                          'MMMM Do YYYY, h:mm:ss a',
+                        )}
+                      </span>
+                    </div>
                   </li>
                 ))}
             </Ul>
