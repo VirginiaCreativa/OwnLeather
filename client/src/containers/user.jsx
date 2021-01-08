@@ -69,7 +69,7 @@ const User = () => {
         </div>
         <div className="col">
           <Column icon="bx-calendar" title="Google Calendar" user={userGmail}>
-            Colummn2
+            loading....
           </Column>
         </div>
       </div>
