@@ -38,6 +38,8 @@ const Login = () => {
       setIsValidationPass(password);
     }
     document.getElementById('btnSubmit').disabled = true;
+
+    console.log(userDatas);
   }, []);
 
   const handleInputChange = (ev) => {
@@ -80,6 +82,7 @@ const Login = () => {
 
   const handleGoBack = (ev) => {
     localStorage.removeItem('formDatas');
+    localStorage.clear();
     dispatch(UserFormSign(false));
   };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moduleName from 'module';
 import Heading from '../components/User/UserHeading';
@@ -10,20 +10,25 @@ const User = () => {
   const [dataGithub, setDataGithub] = useState([]);
   const userGithub = 'VirginiaCreativa';
   const userGmail = 'virginiavelasquez16@gmail.com';
-  const githubToken = '7a29e6e3a6a1fa6a8ed5b7c576940c136355efe1';
-  axios
-    .get(`https://api.github.com/users/${userGithub}/repos`, {
-      headers: {
-        Authorization: `Bearer ${githubToken}`,
-        'Content-Type': 'application/json',
-      },
-    })
-    .then((res) => {
-      setDataGithub(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  const githubToken = '86847caccc44f8942e90e96a755ffe09eadb79b4';
+
+  useEffect(() => {
+    axios
+      .get(`https://api.github.com/users/${userGithub}/repos`, {
+        headers: {
+          Authorization: `Bearer ${githubToken}`,
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => {
+        setDataGithub(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    console.log(dataGithub);
+  });
 
   return (
     <div className="container">
@@ -35,7 +40,10 @@ const User = () => {
             <Ul>
               {dataGithub &&
                 dataGithub.map((item, index) => (
-                  <li key={index}>{item.name}</li>
+                  <li key={index}>
+                    <p>{item.name}</p>
+                    <span>{item.description}</span>
+                  </li>
                 ))}
             </Ul>
           </Column>
