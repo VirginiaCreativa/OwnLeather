@@ -25,30 +25,10 @@ app.use(express.static(path.join(__dirname, 'client')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-
 // ==== FILES ROUTER ==== //
 const Users = require('./routes/users');
-// ==== FILES API ==== //
-
 app.use(Users);
-// ==== API ==== //
-// const rootValue = {
-//   hello: () => 'Hello, world'
-// }
 
-const schema = buildSchema(`
-  query {
-    node(id:"MDQ6VXNlcjM3MTUyODU0") {
-    ... on User {
-        name
-        login
-      }
-    }
-  }
-`);
-app.use('/graphql', graphqlHTTP({ schema, rootValue }));
-
- 
 // ==== STATIC FILES ==== //
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
